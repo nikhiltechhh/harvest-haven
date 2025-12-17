@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from "react";
-import { Search, Filter, Grid, List } from "lucide-react";
+import { Search, Filter, Grid, List, } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { products, categories, categoryIcons } from "@/data/products";
+import { products, categories, categoryIcons, } from "@/data/products";
 import ProductCard from "./ProductCard";
 import CategoryFloatButton from "./CategoryFloatButton";
 import { cn } from "@/lib/utils";
@@ -93,7 +93,7 @@ const Menu: React.FC = () => {
         <div className="flex gap-8">
           {/* Categories Sidebar - Desktop */}
           <aside className="hidden lg:block w-64 flex-shrink-0">
-            <div className="sticky top-24 bg-card rounded-2xl p-4 shadow-soft">
+            <div className="sticky top-24 bg-card rounded-2xl p-4 shadow-soft max-h-[calc(100vh-7rem)] overflow-y-auto">
               <h3 className="font-display text-lg font-semibold mb-4 flex items-center gap-2">
                 <Filter className="h-5 w-5 text-primary" />
                 Categories

@@ -58,14 +58,14 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ isOpen, onClose }) => {
       )
       .join("\n");
 
-    const message = `🌿 *New Order from Organic Store*\n\n` +
+    const message = ` *New Order from Kshiti Organics*\n\n` +
       `*Customer Details:*\n` +
-      `👤 Name: ${formData.name}\n` +
-      `📱 Phone: ${formData.phone}\n` +
-      `📍 Address: ${formData.address}\n\n` +
+      ` Name: ${formData.name}\n` +
+      ` Phone: ${formData.phone}\n` +
+      ` Address: ${formData.address}\n\n` +
       `*Order Details:*\n${orderDetails}\n\n` +
       `*Total Amount: ₹${totalPrice}*\n\n` +
-      `Thank you for ordering! 🙏`;
+      `Thank you for ordering! `;
 
     // Encode message for WhatsApp URL
     const encodedMessage = encodeURIComponent(message);

@@ -1,37 +1,10 @@
 import React, { useState } from "react";
-import { ShoppingCart, Plus, Minus, Check } from "lucide-react";
+import { ShoppingCart, Plus, Check } from "lucide-react";
 import { Product } from "@/types/product";
 import { useCart } from "@/context/CartContext";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
-
-// Product images mapping
-import mangoImg from "@/assets/products/mango.jpg";
-import eggsImg from "@/assets/products/eggs.jpg";
-import honeyImg from "@/assets/products/honey.jpg";
-import spicesImg from "@/assets/products/spices.jpg";
-import oilsImg from "@/assets/products/oils.jpg";
-import flourImg from "@/assets/products/flour.jpg";
-import riceImg from "@/assets/products/rice.jpg";
-import milletsImg from "@/assets/products/millets.jpg";
-import dryfruitsImg from "@/assets/products/dryfruits.jpg";
-import powderImg from "@/assets/products/powder.jpg";
-import beveragesImg from "@/assets/products/beverages.jpg";
-
-const categoryImages: Record<string, string> = {
-  "Fruits & Vegetables": mangoImg,
-  "Chicken & Eggs": eggsImg,
-  "Natural Sweeteners": honeyImg,
-  "Masala (Spices)": spicesImg,
-  "Edible Oils": oilsImg,
-  "Flours": flourImg,
-  "Rice & Rice Products": riceImg,
-  "Millets": milletsImg,
-  "Dry Fruits & Nuts": dryfruitsImg,
-  "Powders": powderImg,
-  "Beverages": beveragesImg,
-};
 
 const weightOptions = [
   { label: "100g", multiplier: 0.1 },
@@ -50,10 +23,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode, index }) =
   const { addToCart } = useCart();
   const [selectedWeight, setSelectedWeight] = useState("1kg");
   const [isAdded, setIsAdded] = useState(false);
-
-  const getProductImage = () => {
-    return categoryImages[product.category] || mangoImg;
-  };
 
   const calculatePrice = (multiplier: number) => {
     if (!product.pricePerKg) return null;
@@ -75,7 +44,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode, index }) =
 
     addToCart(product, selectedWeight, price);
     setIsAdded(true);
-    
+
     toast({
       title: "Added to cart!",
       description: `${product.name} (${selectedWeight}) has been added to your cart.`,
@@ -92,7 +61,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode, index }) =
       >
         <div className="w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden">
           <img
-            src={getProductImage()}
+            src={product.image}
             alt={product.name}
             className="w-full h-full object-cover"
           />
@@ -123,12 +92,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode, index }) =
       {/* Image */}
       <div className="relative aspect-square overflow-hidden">
         <img
-          src={getProductImage()}
+          src={product.image}
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        
+
         {/* Category Badge */}
         <div className="absolute top-3 left-3">
           <span className="px-3 py-1 bg-card/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground">

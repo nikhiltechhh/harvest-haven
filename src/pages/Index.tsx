@@ -5,6 +5,9 @@ import Hero from "@/components/Hero";
 import Menu from "@/components/Menu";
 import CartSidebar from "@/components/CartSidebar";
 import CheckoutForm from "@/components/CheckoutForm";
+import About from "@/components/About";
+import Contact from "@/components/Contact";
+import Reviews from "@/components/Reviews";
 import Footer from "@/components/Footer";
 
 const Index: React.FC = () => {
@@ -14,22 +17,26 @@ const Index: React.FC = () => {
   return (
     <CartProvider>
       <div className="min-h-screen bg-background">
-        <Header 
-          onMenuClick={() => setIsMenuOpen(!isMenuOpen)} 
-          isMenuOpen={isMenuOpen} 
+        <Header
+          onMenuClick={() => setIsMenuOpen(prev => !prev)}
+          isMenuOpen={isMenuOpen}
         />
-        
+
         <main>
           <Hero />
+          <About />
           <Menu />
+          <Contact />
+          <Reviews />
         </main>
 
         <Footer />
 
         <CartSidebar onCheckout={() => setIsCheckoutOpen(true)} />
-        <CheckoutForm 
-          isOpen={isCheckoutOpen} 
-          onClose={() => setIsCheckoutOpen(false)} 
+
+        <CheckoutForm
+          isOpen={isCheckoutOpen}
+          onClose={() => setIsCheckoutOpen(false)}
         />
       </div>
     </CartProvider>

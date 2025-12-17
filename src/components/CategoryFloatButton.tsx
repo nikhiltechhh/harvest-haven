@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Filter, X } from "lucide-react";
+import {  NotebookText, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface CategoryFloatButtonProps {
@@ -37,7 +37,7 @@ const CategoryFloatButton: React.FC<CategoryFloatButtonProps> = ({
       >
         <div className="p-4">
           <h3 className="font-display text-lg font-semibold mb-3 flex items-center gap-2">
-            <Filter className="h-5 w-5 text-primary" />
+            < NotebookText className="h-5 w-5 text-primary" />
             Categories
           </h3>
           <div className="space-y-1">
@@ -85,7 +85,7 @@ const CategoryFloatButton: React.FC<CategoryFloatButtonProps> = ({
         {isOpen ? (
           <X className="h-6 w-6" />
         ) : (
-          <Filter className="h-6 w-6" />
+          < NotebookText className="h-6 w-6" />
         )}
       </button>
     </div>

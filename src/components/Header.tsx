@@ -26,25 +26,32 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-card/95 backdrop-blur-md shadow-soft py-2"
-          : "bg-transparent py-4"
+          ? "bg-card/95 backdrop-blur-md shadow-soft py-1"
+          : "bg-transparent py-1"
       )}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto px-4 flex items-center justify-between h-20">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 group">
-          <img
-            src={logo}
-            alt="Organic Store Logo"
-            className="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-105"
-          />
-          <div className="hidden sm:block">
-            <h1 className="font-display text-xl font-bold text-primary leading-tight">
-              Organic
-            </h1>
-            <p className="text-xs text-muted-foreground -mt-1">Farm Fresh</p>
-          </div>
-        </a>
+        <a href="/" className="flex items-center gap-2 group relative h-20">
+  {/* Logo */}
+ <img
+    src="https://i.ibb.co/xtFw6kxF/olg.png"
+    alt="Kshiti Organics Logo"
+    className="h-40 w-40 mt-2 sm:h-48 sm:w-48  object-contain transition-transform duration-300 group-hover:scale-105"
+  />
+
+  {/* Text */}
+  <div className="hidden sm:block">
+    <h1 className="font-display text-xl font-bold text-black leading-tight">
+      <span className="text-green-800">K</span>shiti Organics
+    </h1>
+    <p className="text-xs text-muted-foreground -mt-1">
+      Grown By Farmers. Loved By All!
+    </p>
+  </div>
+</a>
+
+
 
         {/* Navigation - Desktop */}
         <nav className="hidden md:flex items-center gap-8">
@@ -79,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
           {/* Cart Button */}
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative p-2 rounded-full bg-leaf-light hover:bg-leaf/20 transition-all duration-300 group"
+            className="relative p-2  hover:bg-leaf/20 transition-all duration-300 group"
             aria-label="Open cart"
           >
             <ShoppingCart className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
