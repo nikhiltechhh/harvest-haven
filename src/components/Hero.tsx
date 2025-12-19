@@ -26,20 +26,20 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 py-8 lg:py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-2 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center">
           
           {/* Logo - First on mobile, right on desktop */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in -my-8 lg:-my-12">
-            <div className="relative animate-float">
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in">
+            <div className="relative animate-breathe">
               {/* Glow effect behind logo */}
-              <div className="absolute inset-0 bg-primary/20 blur-3xl animate-pulse" />
+              <div className="absolute inset-0 bg-primary/20 blur-3xl" />
               
               {/* Logo */}
               <div className="relative">
                 <img 
                   src={logoUrl} 
                   alt="Organic Products Logo" 
-                  className="w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 object-contain drop-shadow-2xl"
+                  className="w-72 h-72 sm:w-96 sm:h-96 lg:w-[30rem] lg:h-[30rem] object-contain drop-shadow-2xl"
                 />
               </div>
             </div>
@@ -139,24 +139,13 @@ const Hero: React.FC = () => {
 
       {/* Animations */}
       <style>{`
-       /* Vertical floating logo – no horizontal drift */
-        @keyframes floatY {
-          0%, 100% { transform: translateY(0) translateX(0); }
-          50% { transform: translateY(-20px) translateX(0); }
+        /* Smooth breathing fade effect */
+        @keyframes breathe {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.4; }
         }
-        .animate-float {
-          animation: floatY 4s ease-in-out infinite;
-          transform-origin: center center;
-        }
-
-        /* Glow pulse */
-        @keyframes pulse {
-          0%, 100% { opacity: 0.6; }
-          50% { opacity: 1; }
-        }
-        .animate-pulse {
-          animation: pulse 3s ease-in-out infinite !important;
-          transform: none !important;
+        .animate-breathe {
+          animation: breathe 3s ease-in-out infinite;
         }
       `}</style>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { X, Plus, Minus, ShoppingBag, Trash2 } from "lucide-react";
+import { X, Plus, Minus, ShoppingBag, Trash2, Truck, MapPin } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -77,6 +77,22 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ onCheckout }) => {
           >
             <X className="h-6 w-6" />
           </button>
+        </div>
+
+        {/* Delivery Information */}
+        <div className="p-4 bg-primary/5 border-b border-border space-y-2">
+          <div className="flex items-start gap-2">
+            <Truck className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              <span className="font-semibold text-foreground">Free delivery</span> on orders above ₹1000
+            </p>
+          </div>
+          <div className="flex items-start gap-2">
+            <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Delivery available from <span className="font-medium text-foreground">Patancheruvu to Balanagar</span> and <span className="font-medium text-foreground">Gandimaisamma to Manikonda</span>
+            </p>
+          </div>
         </div>
 
         {/* Cart Items */}
